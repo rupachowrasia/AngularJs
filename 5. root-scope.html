@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Root Scope</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript">
+
+	var sample = angular.module("sample", []).run(["$rootScope", function($rootScope){
+		$rootScope.taxPercent = 5;
+	}]);
+
+	sample.controller("emp", ["$scope", function($scope){
+		$scope.name = "Rupa";
+	}]);
+
+	sample.controller("empDetails", ["$scope", function($scope){
+		$scope.sal = 3000;
+		$scope.dept = "IT";
+	}]);
+
+	sample.controller("empPaycheck", ["$scope", "$rootScope", function($scope, $rootScope){
+		$scope.getTaxes = function(){
+			return $scope.sal * $rootScope.taxPercent/100;
+		};
+		
+		$scope.getNet = function(){
+			return $scope.sal - $scope.getTaxes();
+		};
+
+	}]);
+
+	</script>
+</head>
+
+<body ng-app="sample">
+	<div ng-controller="emp">
+		{{name}} details:
+		<div ng-controller="empDetails">
+			{{name}} earns {{sal}} and works in {{dept}}.
+			<div ng-controller="empPaycheck">
+				Taxes : {{getTaxes()}}
+				Net : {{getNet()}}
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="6. oneWay-twoWay-oneTime-dataBinding.js"></script>
+</head>
+<body ng-app="app">
+
+	<div ng-controller="emp">
+		<p><strong>One way Data-Binding</strong> using evaluation of expression</p>
+		Value of a : {{a}} <br>
+		Value of b : {{b}} <br>
+		<hr>
+
+		<p><strong>One way Data-Binding</strong> using ng-bind (can be use only on non-input fields)</p>
+		Value of a <span ng-bind="a"></span><br>
+		Value of b <span ng-bind="b"></span>
+		<hr>
+
+		Sum = {{sum}} <br>
+		<button ng-click="doDoubleAndSum()">Calculate</button>
+		<hr>
+
+		<p><strong>One time Data-Binding</strong> using ::</p>
+		Initial value of a: {{::a}} <br>
+		Initial value of b: {{::b}}
+		<hr>
+
+		<p><strong>Two way Data-Binding</strong> using ng-model</p>
+		Value of a : {{a}}, but you can change <input type="text" ng-model="a"><br>
+		Value of b : {{b}}, but you can change <input type="text" ng-model="b"><br>
+		Sum = {{sum1}} <br>
+		<button ng-click="doSum()">Calculate</button>
+		<hr>
+	</div>
+
+</body>
+</html>

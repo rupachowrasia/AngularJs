@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Controller</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript">
+		
+	var app = angular.module("sample", []);
+	app.controller("emp", function(){
+		this.Name = "tester";
+		this.Sal = 4500;
+	});
+
+	</script>
+</head>
+<!-- way 1 -->
+<body ng-app="sample">
+	<div ng-controller="emp as o">
+		Hello {{ o.Name }}! lookes like your salary is {{ o.Sal }}
+	</div>
+</body>
+
+<!-- way 2 -->
+<!-- <body ng-app="sample" ng-controller="emp as o">
+		Hello {{ o.Name }}! lookes like your salary is {{ o.Sal }}
+</body> -->
+</html>

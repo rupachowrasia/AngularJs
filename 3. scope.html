@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Scope</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript">
+
+	// way 1 of doing this	
+	/* var sample = angular.module("sample", []);
+	sample.controller("emp", function($scope){
+		$scope.name = "Rupa";
+	});*/
+
+	// way 2 of doing this, this is best practise, adding scope like this is called dependency injection
+	var sample = angular.module("sample", []);
+	sample.controller("emp", ["$scope", function(c){
+		c.name = "Rupa";
+		c.sal = 4500;
+		c.getAnnualSal = function(){
+			return (this.sal) * 12;
+		}
+	}]);
+
+	sample.controller("empinfo", ["$scope", function($scope){
+		$scope.name = "Tester";
+		$scope.city = "kolkata";
+
+	}]);
+
+	</script>
+</head>
+<body ng-app="sample">
+	<div ng-controller="emp">
+		Hello {{name}}! your sal is {{sal}}. Your annual salary is {{getAnnualSal()}}
+	</div>
+
+	<div ng-controller="empinfo">
+		Hello {{name}}! your current city is {{city}}.
+	</div>
+</body>
+</html>

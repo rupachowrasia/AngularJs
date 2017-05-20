@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Filters</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="9. ngif-nfshow-nghide-ngrepeat.js"></script>
+
+</head>
+<body ng-app="app">
+	<div class="container" ng-controller="emp">
+		<form class="form-inline">
+			<div class="form-group">
+				<label>Enter Employee No:</label>
+				<input class="form-control" type="text" ng-model="empSearchNo">
+			</div>
+			<button class="btn btn-primary" ng-click="getEmpDetails()">Search Employee</button>
+		</form>
+		<hr>
+		<div class="row">
+			<div class="col-sm-2">Emp No</div>
+			<div class="col-sm-2">{{empno}}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Name</div>
+			
+			<div class="col-sm-2">{{a}}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Salary</div>
+			<div class="col-sm-2">{{sal}}
+			<!-- <span class="glyphicon glyphicon-warning-sign" ng-if="sal > 6000"></span>
+			 -->
+			 <span class="glyphicon glyphicon-warning-sign" ng-if="isSalAbove6kb"></span>
+			<!-- <span class="glyphicon glyphicon-warning-sign" ng-show="sal > 6000"></span> -->
+			<!-- <span class="glyphicon glyphicon-warning-sign" ng-hide="sal == undefined || sal <= 6000"></span> -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Dept no</div>
+			<div class="col-sm-2">{{deptno}}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">Hire Date</div>
+			<div class="col-sm-2">{{hiredate}}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">DOB</div>
+			<div class="col-sm-2">{{dob}}</div>
+		</div>
+
+		<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>Name</td>
+						<td>Salary</td>
+						<td>Dept no</td>
+						<td>Hire Date</td>
+						<td>DOB</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="oEmp in Employee">
+						<td>{{oEmp.empno}}</td>
+						<td>{{oEmp.ename | uppercase}}</td>
+						<td>{{oEmp.sal}}
+						<span class="glyphicon glyphicon-warning-sign" ng-if="oEmp.sal > 6000"></span>
+						</td>
+						<td>{{oEmp.deptno | lowercase}}</td>
+						<td>{{oEmp.hiredate}}</td>
+						<td>{{oEmp.dob}}</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>

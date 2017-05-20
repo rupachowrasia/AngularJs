@@ -1,0 +1,43 @@
+{
+	"emp1": {
+		"empno": 1001,
+		"ename": "tester1",
+		"sal": 4000,
+		"deptno": "IT",
+		"hiredate": "1/12/2012",
+		"dob": "1/1/1990"
+	},
+	"emp2": {
+		"empno": 1002,
+		"ename": "tester2",
+		"sal": 5000,
+		"deptno": "Sales",
+		"hiredate": "2/12/2012",
+		"dob": "2/1/1990"
+	},
+	"emp3": {
+		"empno": 1003,
+		"ename": "tester3",
+		"sal": 6000,
+		"deptno": "HR",
+		"hiredate": "3/12/2012",
+		"dob": "3/1/1990"
+	},
+	"emp4": {
+		"empno": 1004,
+		"ename": "tester4",
+		"sal": 7000,
+		"deptno": "IT",
+		"hiredate": "4/12/2012",
+		"dob": "4/1/1990"
+	},
+	"emp5": {
+		"empno": 1005,
+		"ename": "tester5",
+		"sal": 8000,
+		"deptno": "AC",
+		"hiredate": "5/12/2012",
+		"dob": "5/1/1990"
+	}
+	
+}
