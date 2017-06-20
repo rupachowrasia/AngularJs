@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Directives</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="11.custom-directives.js"></script>
+</head>
+<body ng-app="app">
+
+	<!-- incliding content in script if script in page is missing then look for file named my-message-info.html -->
+	<!-- <script type="text/ng-template" id="my-message-info.html">
+		<strong>Calling message from script</strong><br>
+		<strong>{{msg}}</strong>
+	</script> -->
+
+	<div class="container" ng-controller="emp">
+
+		<!-- way 1 of using custom directive -->
+		<div my-message-info></div>
+		<!-- way 2 of using custom directive -->
+		<my-message-info></my-message-info>
+		<hr>
+
+		<!-- way 3 of using custom directive -->
+		<div my-message-info-script></div>
+		<hr>
+
+		<!-- get an emp and show using custom directory -->
+		<form class="form-inline">
+			<div class="form-group">
+				<label>Search by Emp No :</label>
+				<input type="text" ng-model="empSearchNo">
+			</div>
+			<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>
+		<div class="row">
+			<div class="col-sm-4">
+				<div emp-details ng-if="empno != undefined"></div>
+			</div>
+		</div>
+		<hr>
+
+		<!-- get all emp and show using custom directory -->
+		<div class="row">
+			<h2>All Employee List</h2>
+			<div class="col-sm-4" ng-repeat="oEmp in Employee">
+				<div emp-details-all></div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

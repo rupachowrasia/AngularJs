@@ -1,12 +1,12 @@
 var app = angular.module("app", []);
-
 app.controller("emp", ["$scope", "empService", "empServiceById", "$filter", function($scope, empService, empServiceById, $filter){
 
-	empService.empDetails(function(result){
+	$scope.Employee = [];
+	empService.getEmp(function(result){
 		$scope.Employee = result;
 	});
 
-	$scope.getSearch = function(){
+	$scope.getEmpDetails = function(){
 		empServiceById.getEmpById($scope.empSearchNo, function(result){
 			$scope.empno = result.empno;
 			$scope.ename = result.ename;
@@ -14,14 +14,14 @@ app.controller("emp", ["$scope", "empService", "empServiceById", "$filter", func
 			$scope.deptno = result.deptno;
 			$scope.hiredate = result.hiredate;
 			$scope.dob = result.dob;
-			$scope.a = $filter("uppercase")(result.ename);
+			//$scope.ENAME = $filter("uppercase")(result.ename);
 		});
 	};
 
 }]);
 
-app.service("empService" ["$http", "$log", function($http, $log){
-	this.empDetails = function(cb){
+app.service("empService", ["$http", "$log", function($http, $log){
+	this.getEmp = function(cb){
 		$http({
 			url: 'http://localhost:3000/allemp/',
 			method : 'GET'
@@ -33,12 +33,13 @@ app.service("empService" ["$http", "$log", function($http, $log){
 	};
 }]);
 
-app.service("empServiceById" ["$http", "$log", function($http, $log){
-	this.empDetails = function(empno, cb){
+app.service("empServiceById", ["$http", "$log", "$filter", function($http, $log, $filter){
+	this.getEmpById = function(empno, cb){
 		$http({
 			url: 'http://localhost:3000/emp?empno=' + empno,
 			method : 'GET'
 		}).then(function(res){
+			//res.data.ename = $filter("uppercase")(res.data.ename);
 			cb(res.data);
 		},function(err){
 			$log.error("Error Occured");

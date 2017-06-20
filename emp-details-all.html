@@ -1,0 +1,32 @@
+<div ng-class= '(oEmp.sal <= 6000) ? "panel panel-primary" : "panel panel-danger"'>
+	<div class="panel-heading">{{oEmp.ename | uppercase}}</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-4">Employee No :</div>
+				<div class="col-sm-8">{{oEmp.empno}}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">Name :</div>
+				<div class="col-sm-8">{{oEmp.ename | uppercase}}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">Salary :</div>
+				<div class="col-sm-8">{{oEmp.sal | currency : '$':2}}
+					<span class="glyphicon glyphicon-warning-sign" ng-if="oEmp.sal > 6000"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">Dept No :</div>
+				<div class="col-sm-8">{{oEmp.deptno | lowercase}}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">Hire Date :</div>
+				<div class="col-sm-8">{{oEmp.hiredate}}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">DOB :</div>
+				<div class="col-sm-8">{{oEmp.dob}}</div>
+			</div>
+		</div>
+	</div>
+</div>
