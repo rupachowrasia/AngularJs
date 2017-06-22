@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Child/Inherited scope in Controller and Directive</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="19.child-scope-in-controller-directive.js"></script>
+</head>
+<body ng-app="app">
+
+<div class="container" id="div1" ng-controller="parent">
+
+	<h2>Child scope demo in Controller</h2>
+	<p>primitive level</p>
+	Parent Controller : a = {{a}}, b = {{b}}<br>
+	a = <input type="text" ng-model="a"><br><br>
+	<p>object level</p>
+	Parent : p = {{o.p}}, q = {{o.q}}<br>
+	p = <input type="text" ng-model="o.p"><br><br>
+	<hr>
+
+	<div id="div2" ng-controller="child">
+		<p>primitive level</p>
+		Child Controller : a = {{a}}, b = {{b}}<br>
+		a = <input type="text" ng-model="a"><br>
+		Parent : a = {{$parent.a}}<br>
+		Child Controller : c = {{c}}, d = {{d}}<br><br>
+		<p>object level</p>
+		Child : p = {{o.p}}, q = {{o.q}}<br>
+		p = <input type="text" ng-model="o.p"><br><br>
+	</div>
+
+	<h2>Child scope demo in Directive</h2>
+	Controller : a = {{a}}, b = {{b}}<br>
+	<button ng-click="changeValueB()">Change value B</button><br><br><br>
+	Directive1 Instance 1 : <div message></div><br>
+	Directive1 Instance 1 : <div message></div><br>
+
+	<h2>Child scope demo in ng-include and ng-repeat(does not include shared scope)</h2>
+	Controller : a = {{a}}, b = {{b}}<br>
+	<button ng-click="changeValueB()">Change value B</button><br><br><br>
+	Directive2 Instance 1(shared scope) : <div message1></div><br>
+	Directive2 Instance 1(shared scope) : <div message1></div><br>
+
+	Template(child scope) : <div ng-include src="'tmpl-child-scope1.html'"></div>
+	ng-repeat(child scope) : <div message1 ng-repeat="i in [1, 2, 3]"></div>
+
+</div>
+
+</body>
+</html>
