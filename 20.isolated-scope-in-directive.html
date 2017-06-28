@@ -10,17 +10,29 @@
 </head>
 <body ng-app="app">
 
-<div class="container" ng-controller="parent">
+	<div class="container" ng-controller="parent">
 
-Controller : a = {{a}}, b = {{b}}, c = {{p}}, d = {{q}}<hr/>
+		<h3>String value to be accesed(@)</h3>
+		Controller : a = {{a}}, b = {{b}}, c = {{p}}, d = {{q}}<hr/>
+		Directive1 Instance1<div message x="Hello" y="world"></div>
+		Directive1 Instance2<div message x="{{p}}" y="{{q}}"></div>
+		Directive1 Instance3<div message x="{{p * 10}}" y="{{q * 2}}"></div><br><br>
+		Directive2 Instance1<div message2 m="{{a}}" n="{{b}}"></div>
 
-Directive1 Instance1<div message x="Hello" y="world"></div>
-Directive1 Instance2<div message x="{{p}}" y="{{q}}"></div>
-Directive1 Instance3<div message x="{{p * 10}}" y="{{q * 2}}"></div><br><br>
+		<h3>Object to be accesed(=)</h3>
+		Controller : empno = {{emp.empno}}, name = {{emp.name}}
+		Ename : <input type="text" ng-model="emp.name"><hr/>
+		Directive1 Instance1<div message-obj employee="emp"></div><br>
+		Directive1 Instance2<div message-obj employee="emp2"></div><br><br>
+		Directive2 Instance1<div message-obj2 o-emp="emp2"></div><br>
 
-Directive2 Instance1<div message2 m="{{a}}" n="{{b}}"></div>
-	
-</div>
+		<h3>Function to be accesed(&)</h3>
+		Controller : x = {{x}}, y = {{y}}<br>
+		<button ng-click="doSum(x, y)">Sum</button><hr/>
+		<!-- Directive1 Instance1<div message-fun ext-sum="doSum"></div><br> -->
+		<!-- Directive1 Instance2<div message-fun ext-sum="doSum(m,n)"></div><br> -->
+		Directive1 Instance2<div message-fun just-sum="doSum(m,n)"></div><br>
+	</div>
 
 </body>
 </html>
