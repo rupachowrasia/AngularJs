@@ -57,18 +57,18 @@ app.directive('myMessageInfo', function(){
 
 app.directive('myMessageInfoScript', function(){
 	return {
-		templateUrl : "my-message-info.html",
+		templateUrl : "templates/my-message-info.html",
 	}
 });
 
 app.directive('empDetailsAll', function(){
 	return {
-		templateUrl : "emp-details-all.html"
+		templateUrl : "templates/emp-details-all.html"
 	}
 });
 
 app.directive('empDetails', function(){
 	return {
-		templateUrl : "emp-details.html"
+		templateUrl : "templates/emp-details.html"
 	}
 });

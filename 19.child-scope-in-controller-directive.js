@@ -25,7 +25,7 @@ app.controller('child', ['$scope', function($scope){
 // directive1
 app.directive('message', function(){
 	return {
-		templateUrl : "tmpl-child-scope.html",
+		templateUrl : "templates/tmpl-child-scope.html",
 		scope: true,
 
 		controller : function($scope, $element, $attrs){
@@ -45,6 +45,6 @@ app.directive('message', function(){
 // directive2
 app.directive('message1', function(){
 	return {
-		templateUrl : "tmpl-child-scope1.html"
+		templateUrl : "templates/tmpl-child-scope1.html"
 	}
 });

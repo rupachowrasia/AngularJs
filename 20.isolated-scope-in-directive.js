@@ -32,7 +32,7 @@ app.controller('parent', ['$scope', function($scope){
 // accessed string from directive
 app.directive('message', function(){
 	return {
-		templateUrl : 'tmpl-isolated-scope-str.html',
+		templateUrl : 'templates/tmpl-isolated-scope-str.html',
 		scope : {
 			x : '@',
 			y : '@'
@@ -47,7 +47,7 @@ app.directive('message', function(){
 });
 app.directive('message2', function(){
 	return {
-		templateUrl : 'tmpl-isolated-scope-str.html',
+		templateUrl : 'templates/tmpl-isolated-scope-str.html',
 		scope : {
 			x : '@m',
 			y : '@n'
@@ -58,7 +58,7 @@ app.directive('message2', function(){
 // accessed object from directive
 app.directive('messageObj', function(){
 	return {
-		templateUrl : 'tmpl-isolated-scope-obj.html',
+		templateUrl : 'templates/tmpl-isolated-scope-obj.html',
 		scope : {
 			employee : '='
 		}
@@ -66,7 +66,7 @@ app.directive('messageObj', function(){
 });
 app.directive('messageObj2', function(){
 	return {
-		templateUrl : 'tmpl-isolated-scope-obj.html',
+		templateUrl : 'templates/tmpl-isolated-scope-obj.html',
 		scope : {
 			employee : '=oEmp'
 		}
@@ -76,7 +76,7 @@ app.directive('messageObj2', function(){
 // accessed function from directive
 app.directive('messageFun', function(){
 	return {
-		templateUrl : 'tmpl-isolated-scope-fun.html',
+		templateUrl : 'templates/tmpl-isolated-scope-fun.html',
 		scope : {
 			//extSum : '&'
 			extSum : '&justSum'

@@ -14,7 +14,7 @@ app.controller('sample', ['$scope', function($scope){
 
 app.directive('message', function(){
 	return {
-		templateUrl : 'tmpl-shared-scope.html',
+		templateUrl : 'templates/tmpl-shared-scope.html',
 
 		controller : function($scope, $element, $attrs){
 			$scope.changeValueB = function(){
@@ -26,7 +26,7 @@ app.directive('message', function(){
 
 app.directive('message1', function(){
 	return {
-		templateUrl : 'tmpl-shared-scope.html',
+		templateUrl : 'templates/tmpl-shared-scope.html',
 
 		controller : function($scope, $element, $attrs){
 			$scope.changeValueB = function(){
