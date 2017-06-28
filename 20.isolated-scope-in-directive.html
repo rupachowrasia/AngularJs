@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Isolated scope in directives</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="20.isolated-scope-in-directive.js"></script>
+</head>
+<body ng-app="app">
+
+<div class="container" ng-controller="parent">
+
+Controller : a = {{a}}, b = {{b}}, c = {{p}}, d = {{q}}<hr/>
+
+Directive1 Instance1<div message x="Hello" y="world"></div>
+Directive1 Instance2<div message x="{{p}}" y="{{q}}"></div>
+Directive1 Instance3<div message x="{{p * 10}}" y="{{q * 2}}"></div><br><br>
+
+Directive2 Instance1<div message2 m="{{a}}" n="{{b}}"></div>
+	
+</div>
+
+</body>
+</html>
